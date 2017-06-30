@@ -1,0 +1,415 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ajax发文</title>
+		<script type="text/javascript" src="base.js"> </script>
+		<script type="text/javascript" src="Btool.js"> </script>
+		<script type="text/javascript" src="Ajax.js"> </script>
+		<script type="text/javascript" src="json2.js"> </script>
+		<script type="text/javascript" src="index.js"> </script>
+		<script type="text/javascript" src="base_drag.js"> </script>
+		<script type="text/javascript" src="base_form.js"> </script>
+		<link rel="styleSheet" type="text/css" href="index.css">
+	</head>
+	<body>
+	    <!--头部-->
+		<div id="header_bg">
+			<div id="header" >
+				<div class="log" ><img src="img/logo .png" alt=" "/></div>
+				<div class="member">个人中心
+					<ul class="member_ul">
+						<li class="content"><a href="###">发文</a></li>
+						<li class="skin" ><a href="###">换肤</a></li>
+						<li><a href="###">帮助</a></li>
+						<li><a href="###">退出</a></li>
+					</ul>
+				</div>
+				<div class="login">登录|</div>
+				<div class="reg">注册</div>
+				<div class="info"></div>
+			</div>
+		</div>
+		<!--注册页-->
+		<div id="reg">
+			<h2><img class="close" src="img/002a_75.png" alt=" "/>会员注册</h2>
+			<form name="reg">
+				<dl>
+					<dd>用&nbsp;户&nbsp;名:&nbsp;&nbsp;&nbsp;
+						<input type="text"  name="user" class="text" />
+						<span class="info info_user">请输入用户名，2-20位，由字母、数字 和下划线组成！</span>
+						<span class="error error_user">输入不合法，请重新输入！</span>
+						<span class="success success_user">输入合法</span>
+						<span class="loading">正在检测用户名...</span>
+					</dd>
+					<dd>密 &nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="password" name="pw" class="text" />
+						<span class="info info_pw">
+							<p>安全级别: <strong class="s s1">■</strong><strong class="s s2">■</strong><strong class="s s3">■</strong><strong class="s s4" style="font-weight:normal"></strong></strong></p>
+							<p><strong class="q1" style="font-weight:normal">○</strong>6-20个字符</p>
+							<p><strong class="q2" style="font-weight:normal">○</strong>只能包含大小写字母、数字和非空格字符</p>
+							<p><strong class="q3" style="font-weight:normal">○</strong>大、小写字母、数字、非空字符，2种以上</p>
+						</span>
+						<span class="error error_pw">输入不合法，请重新输入！</span>
+						<span class="success success_pw">输入合法</span>
+					</dd>
+					<dd>密码确认:&nbsp;&nbsp;
+						<input type="password" name="notpw" class="text" />
+						<span class="info info_notpw">请再一次输入密码！</span>
+						<span class="error error_notpw">密码不一致，请重新输入！</span>
+						<span class="success success_notpw">输入合法</span>
+					</dd>	
+					<dd>
+						<span style="vertical-align:-2px;">提 &nbsp;&nbsp;&nbsp;&nbsp;问:&nbsp;&nbsp;&nbsp;</span>		<select name="question" >
+								<option value="0">---请选择---</option>
+								<option value="1">你喜欢的作者</option>
+								<option value="2">你狗狗的名字</option>
+								<option value="3">你的出生地</option>
+								<option value="4">你最喜欢的地方</option>
+						  </select>
+						  <span class="error error_question">尚未选择提问，请选择！</span>
+					</dd>	
+					<dd>回 &nbsp;&nbsp;&nbsp;&nbsp;答:&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="text"  name="answer" class="text"/>
+						<span class="info info_answer">请输入回答，2~32位！</span>
+						<span class="error error_answer">回答不合法，请重新输入！</span>
+						<span class="success success_answer">输入合法</span>
+					</dd>	
+					<dd>电子邮件:&nbsp;&nbsp;
+						<input type="email"  name="email" class="text" autocomplete="off"/>
+						<span class="info info_email">请输入电子邮件！</span>
+						<span class="error error_email">邮件不合法，请重新输入！</span>
+						<span class="success success_email">输入合法</span>
+						<ul class="all_email">
+							<li><span></span>@qq.com</li>
+							<li><span></span>@163.com</li>
+							<li><span></span>@sohou.com</li>
+							<li><span></span>@sina.com.cn</li>
+							<li><span></span>@gmail.com</li>
+						</ul>
+					</dd>	
+					<dd class="birthday">
+						<span style="vertical-align:-2px;">生 &nbsp;&nbsp;&nbsp;&nbsp;日:&nbsp;&nbsp;&nbsp;
+						</span>			
+						<select name="year" >
+							<option value="0">-请选择-</option>
+						</select>年
+						<select name="month" >
+							<option value="0">-请选择-</option>
+						</select>月
+						<select name="day" >
+							<option value="0">-请选择-</option>
+						</select>日
+						<span class="error error_birthday">尚未全部选择，请选择！</span>
+					</dd>
+					<dd style="height:105px;">
+						<span style="vertical-align:85px;">备 &nbsp;&nbsp;&nbsp;&nbsp;注:&nbsp;&nbsp;&nbsp;&nbsp;
+						</span>
+						<textarea name="ps" ></textarea></dd>
+					<dd class="ps ps1" style="display:block;">还可以输入<strong class="num">200</strong>个字</dd>
+					<dd class="ps ps2" style="display:none">已超过<strong class="num">30</strong>个字,<span class="clear">清尾</span></dd>
+					<dd style="padding:0 0 0 200px;"><input type="button" class="submit" name="sub" value="注册"/></dd>
+				</dl>
+			</form>
+		</div>
+		<!-- 登入页-->
+		<div id="login">
+			<h2><img class="close" src="img/002a_75.png" alt=" "/>网站登录</h2>
+			<form name="login">
+				<div class="info"></div>
+				<div class="user">账 号:<input type="text" name="user" class="text"/></div>
+				<div class="pass">密 码:<input type="password" name="pass" class="text"/></div>
+				<div class="button"><input type="button" name="sub" class="submit" value="登录"/></div>
+				<div class="other">注册用户|忘记密码</div>
+			</form>
+		</div>
+		
+		<!--发文页-->
+		<div id="blog">
+			<h2><img class="close" src="img/002a_75.png" alt=" "/>发表文章</h2>
+			<div class="info"></div>
+			<form name="blog">
+				<dl>
+					<dd>标&nbsp;&nbsp;&nbsp;&nbsp; 题:&nbsp;&nbsp;&nbsp;<input type="text"  name="title" class="title" />(*不可为空)
+					</dd>
+					<dd><span style="vertical-align:85px;">内&nbsp;&nbsp;&nbsp;&nbsp;容 :&nbsp;&nbsp;</span>
+						<textarea name="content" class="content"></textarea><span style="vertical-align:45px;">(*不可为空)</span></dd>
+					<dd style="padding:0 0 0 75px;"><input type="button" class="submit" name="sub" value="发表"/></dd>
+				</dl>
+			</form>
+		</div>
+		
+		<!--换肤-->
+		<div id="skin">
+			<h2><img class="close" src="img/002a_75.png" alt=" "/>更换皮肤</h2>
+			<div class="skin_bg">
+				<!--<dl>
+					<dt><img src="img/small1.png" alt="" /></dt>
+					<dd>皮肤1</dd>
+				</dl>
+				<dl>
+					<dt><img src="img/small2.png"  alt="" /></dt>
+					<dd>皮肤2</dd>
+				</dl>
+				<dl>
+					<dt><img src="img/small3.png"  alt="" /></dt>
+					<dd>皮肤3</dd>
+				</dl>
+				<dl>
+					<dt><img src="img/small4.png"  alt="" /></dt>
+					<dd>皮肤4</dd>
+				</dl>
+				<dl>
+					<dt><img src="img/small5.png"  alt="" /></dt>
+					<dd>皮肤5</dd>
+				</dl>
+				<dl>
+					<dt><img src="img/small6.png" alt="" /></dt>
+					<dd>皮肤6</dd>
+				</dl>-->
+			</div>
+		</div>
+
+		<!--导航页-->
+		<div id="nav">
+			<ul class="about">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<ul class="black">
+				<li>首页</li>
+				<li>博文列表</li>
+				<li>精彩相册</li>
+				<li>动感音乐</li>
+				<li>关于我</li>
+			</ul>
+			<div class="nav_bg">
+				<ul class="white">
+					<li>首页</li>
+					<li>博文列表</li>
+					<li>精彩相册</li>
+					<li>动感音乐</li>
+					<li>关于我</li>
+				</ul>
+			</div>
+		</div >	
+		
+		<!--切换菜单主页-->
+		<div id="main">
+			<!--左侧-->
+			<div id="sidebar">
+				<h2>古诗1</h2>	
+				<ul>
+					<li><a href="###">登高</a></li>
+					<li><a href="###">风急天高猿啸哀，渚清沙白鸟飞回。</a></li>
+					<li><a href="###">无边落木萧萧下，不尽长江滚滚来。</a></li>
+					<li><a href="###">万里悲秋常作客，百年多病独登台。</a></li>
+					<li><a href="###">艰难苦恨繁霜鬓，潦倒新停浊酒杯。</a></li>
+				</ul>
+				<h2>古诗2</h2>	
+				<ul>
+					<li><a href="###">无题·相见时难别亦难</a></li>
+					<li><a href="###">相见时难别亦难，东风无力百花残。</a></li>
+					<li><a href="###">春蚕到死丝方尽，腊炬成灰泪始干。</a></li>
+					<li><a href="###">晓镜但愁云鬓改，夜吟应觉月光寒。</a></li>
+					<li><a href="###">蓬莱此去无多路，青鸟殷勤为探看。</a></li>
+				</ul>
+				<h2>古诗3</h2>	
+				<ul>
+					<li><a href="###">琵琶行·并序</a></li>
+					<li><a href="###">浔阳江头夜送客，枫叶荻花秋瑟瑟。</a></li>
+					<li><a href="###">主人下马客在船，举酒欲饮无管弦。</a></li>
+					<li><a href="###">醉不成欢惨将别，别时茫茫江浸月。</a></li>
+					<li><a href="###">忽闻水上琵琶声，主人忘归客不发。</a></li>
+				</ul>
+			</div>
+			<!--右侧发文-->
+			<div id="index">
+				
+				
+			</div>
+			<!--轮播器-->
+			<div id="banner">
+				<img style="width:900px; height:150px;" src="img/p1.png" alt="轮播器图一" />
+				<img style="width:900px; height:150px;" src="img/p2.png" alt="轮播器图二" />
+				<img style="width:900px;height:150px;" src="img/p3.png" alt="轮播器图三" />
+				<ul>
+					<li>●</li>
+					<li>●</li>
+					<li>●</li>
+				</ul>
+				<span></span>
+				<strong></strong>
+			</div>
+			<!--延迟加载-->
+			<div id="photo">
+				<dl>
+					<dt><img  xsrc="img/t1.png" bigsrc="img/t1.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t2.png" bigsrc="img/t2.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t3.png" bigsrc="img/t3.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t4.png" bigsrc="img/t4.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t5.png" bigsrc="img/t5.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t6.png" bigsrc="img/t6.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t7.png" bigsrc="img/t7.jpg"  src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t8.png" bigsrc="img/t8.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t9.png" bigsrc="img/t9.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t10.png" bigsrc="img/t10.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t11.png" bigsrc="img/t11.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+				<dl>
+					<dt><img  xsrc="img/t12.png" bigsrc="img/t12.jpg" src="" alt="待加载" class="wait_load" /></dt>
+					<dd>延迟加载图片</dd>
+				</dl>
+			</div>
+
+		</div>
+		
+		<!--分享栏-->
+		<div id="share">
+			<h2>分享到</h2>
+			<ul>
+				<li><a href="###" class="a">一键分享</a></li>
+				<li><a href="###" class="b">新浪微博</a></li>
+				<li><a href="###" class="c">人人网</a></li>
+				<li><a href="###" class="d">百度相册</a></li>
+				<li><a href="###" class="e">腾讯朋友</a></li>
+				<li><a href="###" class="f">豆瓣网</a></li>
+				<li><a href="###" class="g">百度新首页  </a></li>
+				<li><a href="###" class="h">和讯</a></li>
+				<li><a href="###" class="i">QQ空间</a></li>
+				<li><a href="###" class="j">百度中心</a></li>
+				<li><a href="###" class="k">腾讯微博</a></li>
+				<li><a href="###" class="l">开心网</a></li>
+				<li><a href="###" class="m">百度贴吧</a></li>
+				<li><a href="###" class="n">印象笔记</a></li>
+				<li><a href="###" class="o">QQ好友</a></li>
+				<li><a href="###" class="p">更多...</a></li>
+			</ul>
+			<div class="share_footer"><a href="###">百度分享</a> <span></span></div>
+		</div>
+		
+		<!--预加载-->
+		<div id="photo_big">
+			 <h2><img class="close" src="img/002a_75.png" alt=" "/>图片预加载</h2>
+			 <div class="big">
+				<img src="img/loading2.gif" alt="" />
+				<strong class="sl">&lt;</strong>
+				<strong class="sr">&gt;</strong>
+				<span class="left"></span>
+				<span class="right"></span>
+				<em class="index"></em>
+			 </div>
+		</div>
+		
+		 <!--加载提示-->
+		 <div id="loading" >
+		 	<p>加载中...</p>
+		 </div>
+		 <div id="suc">
+		 	<p>成功</p>
+		 </div>
+		
+		 <!--底部-->
+		 <div id="footer">
+		 	<p>百度官网:http://baidu.com</p>
+		 	<p>Tel:12345678912</p>
+		 </div>
+		
+		 <!--遮罩层-->
+		<div id="screen" ></div>
+		
+		
+		<!--测试队列动画即一个动画接着一个动画
+		 <div class="test1" style="width:100px;height:100px;background-color:red;position:absolute;top:100px;left:100px"></div>
+		 <div class="test1" style="width:100px;height:100px;background-color:green;position:absolute;top:200px;left:100px"></div>
+		 <div class="test1" style="width:100px;height:100px;background-color:blue;position:absolute;top:300px;left:100px"></div>
+		 -->
+		 
+		 <!--测试同步动画，即几个动画同时进行
+		 <div id="test"style="width:100px;height:100px;background-color:#cc33cc;position:absolute;top:100px;left:300px">同步动画</div>
+		 -->
+		<div id="test" style="clear:both"></div>
+		
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

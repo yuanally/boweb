@@ -1,0 +1,33 @@
+<style>
+    .box {
+        width: 1000px;
+        height: 500px;
+        background-color: pink;
+        overflow: hidden;
+     
+        /*这行代码解决垂直外边距塌陷问题*/
+    }
+    .one {
+        width: 500px;
+        height: 200px;
+        border: 10px solid black;
+        background-color: green;
+        position: relative;
+    }
+    .two {
+        width: 100px;
+        height: 100px;
+        background-color:yellow;
+        position: absolute;
+        border: 10px solid red;
+		z-index:;
+    }
+</style>
+</head>
+<body>
+
+    
+        <div class="two"></div>
+
+
+</body>
